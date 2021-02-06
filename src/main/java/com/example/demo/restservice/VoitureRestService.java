@@ -17,10 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Voiture;
-import com.example.demo.repositories.AnneeRepository;
-import com.example.demo.repositories.CategoriRepository;
-import com.example.demo.repositories.MarqueRepository;
-import com.example.demo.repositories.ModelRepository;
 import com.example.demo.repositories.VoitureRepository;
 
 @CrossOrigin("*")
@@ -30,7 +26,7 @@ public class VoitureRestService {
 	private VoitureRepository rep;
 	
 	@GetMapping(value="/voiture/all")
-	private List<Voiture> listVoiture(){
+	private List<Voiture> listModel(){
 		return rep.findAll();
 	}
 //	@GetMapping(value="/voiture/trie")
