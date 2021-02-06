@@ -28,14 +28,14 @@ import com.example.demo.repositories.VoitureRepository;
 public class VoitureRestService {
 	@Autowired
 	private VoitureRepository rep;
-	@Autowired
-	private ModelRepository repM;
-	@Autowired
-	private MarqueRepository repmar;
-	@Autowired
-	private CategoriRepository repC;
-	@Autowired
-	private AnneeRepository repA;
+//	@Autowired
+//	private ModelRepository repM;
+//	@Autowired
+//	private MarqueRepository repmar;
+//	@Autowired
+//	private CategoriRepository repC;
+//	@Autowired
+//	private AnneeRepository repA;
 	
 	@GetMapping(value="/voiture/all")
 	private List<Voiture> listVoiture(){
