@@ -2,7 +2,11 @@ package com.example.demo.restservice;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +29,10 @@ public class VoitureRestService {
 	private List<Voiture> listModel(){
 		return rep.findAll();
 	}
+//	@GetMapping(value="/voiture/trie")
+//	private List<Voiture> trieModel(){
+//		
+//	}
 	@GetMapping(value="/voiture/{id}")
 	private Voiture listModel(@PathVariable(name="id") Long id){
 		return rep.findById(id).get();

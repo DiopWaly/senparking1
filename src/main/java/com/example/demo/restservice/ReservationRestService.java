@@ -12,14 +12,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entities.Client;
 import com.example.demo.entities.Reservation;
+import com.example.demo.repositories.ChauffeurRepository;
+import com.example.demo.repositories.ClientRepository;
 import com.example.demo.repositories.ReservationRepository;
+import com.example.demo.repositories.VoitureRepository;
 
 @CrossOrigin("*")
 @RestController
 public class ReservationRestService {
 	@Autowired
 	private ReservationRepository rep;
+	@Autowired
+	private ClientRepository repC;
+	@Autowired
+	private VoitureRepository repV;
+	@Autowired
+	private ChauffeurRepository repCh;
 	
 	@GetMapping(value="/reservation/all")
 	private List<Reservation> listModel(){

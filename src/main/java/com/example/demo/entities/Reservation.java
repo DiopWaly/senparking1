@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,18 +24,32 @@ public class Reservation implements Serializable {
 
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+//	@JoinColumn(nullable = true)
 	private Client client;
+	public Reservation(Client client, Voiture voiture, Date dateReservation, Date dateRetour,
+			boolean withdriver, Chauffeur chauffeur, float tarif, String lieudisposition) {
+		super();
+		this.client = client;
+		this.voiture = voiture;
+		this.dateReservation = dateReservation;
+		this.dateRetour = dateRetour;
+		this.withdriver = withdriver;
+		this.chauffeur = chauffeur;
+		this.tarif = tarif;
+		this.lieudisposition = lieudisposition;
+	}
+
+
 	@ManyToOne
-	@JoinColumn(nullable = false)
+//	@JoinColumn(nullable = false)
 	private Voiture voiture;
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Date dateReservation;
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private Date dateRetour;
 	private boolean withdriver;
 	@ManyToOne
-	@JoinColumn(nullable = false)
+//	@JoinColumn(nullable = false)
 	private Chauffeur chauffeur;
 	private float tarif;
 	private String lieudisposition;

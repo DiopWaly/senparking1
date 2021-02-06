@@ -21,6 +21,10 @@ import lombok.Data;
 @Entity
 public class Client implements Serializable {
 
+	public Client() {
+		
+	}
+
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
