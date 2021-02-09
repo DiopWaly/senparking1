@@ -56,8 +56,11 @@ public class Reservation implements Serializable {
 	private Chauffeur chauffeur;
 	private float tarif;
 	private String lieudisposition;
+	@Column
 	private Long cli;
+	@Column
 	private Long c;
+	@Column
 	private Long v;
 	
 	
