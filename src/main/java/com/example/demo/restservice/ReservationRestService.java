@@ -46,6 +46,10 @@ public class ReservationRestService {
 	}
 	@PostMapping(value="/reservation/add")
 	private Reservation save(@RequestBody Reservation r) {
+		r.setClient(repC.findById((Long)r.getCli()).get());
+		r.setChauffeur(repCh.findById((Long)r.getV()).get());
+		r.setVoiture(repV.findById((Long)r.getV()).get());
+		System.out.println(r.toString());
 		return rep.save(r);
 	}
 	@DeleteMapping(value="/reservation/delete/{id}")

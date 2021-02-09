@@ -4,14 +4,20 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.imageio.ImageIO;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.NotFound;
 import org.springframework.lang.NonNull;
@@ -53,6 +59,18 @@ public class Client implements Serializable {
 	private String adresse;
 	private String profil;
 	
+//	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+////	@JoinColumn
+//	private Collection<Reservation> reservation = new ArrayList<>();
+	
+//	public Collection<Reservation> getReservation() {
+//		return reservation;
+//	}
+//
+//	public void setReservation(Collection<Reservation> reservation) {
+//		this.reservation = reservation;
+//	}
+
 	public String getProfil() {
 		return profil;
 	}

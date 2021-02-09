@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Reservation implements Serializable {
 	
@@ -24,7 +26,8 @@ public class Reservation implements Serializable {
 
 
 	@ManyToOne
-//	@JoinColumn(nullable = true)
+//	@JoinColumn
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Client client;
 	public Reservation(Client client, Voiture voiture, Date dateReservation, Date dateRetour,
 			boolean withdriver, Chauffeur chauffeur, float tarif, String lieudisposition) {
@@ -53,7 +56,39 @@ public class Reservation implements Serializable {
 	private Chauffeur chauffeur;
 	private float tarif;
 	private String lieudisposition;
+	private Long cli;
+	private Long c;
+	private Long v;
 	
+	
+	public Long getC() {
+		return c;
+	}
+
+
+	public void setC(Long c) {
+		this.c = c;
+	}
+
+
+	public Long getV() {
+		return v;
+	}
+
+
+	public void setV(Long v) {
+		this.v = v;
+	}
+
+
+	public Long getCli() {
+		return cli;
+	}
+
+
+	public void setCli(Long cli) {
+		this.cli = cli;
+	}
 
 	public Client getClient() {
 		return client;
@@ -82,6 +117,16 @@ public class Reservation implements Serializable {
 
 	public void setDateReservation(Date dateReservation) {
 		this.dateReservation = dateReservation;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Reservation [id=" + id + ", client=" + client + ", voiture=" + voiture + ", dateReservation="
+				+ dateReservation + ", dateRetour=" + dateRetour + ", withdriver=" + withdriver + ", chauffeur="
+				+ chauffeur + ", tarif=" + tarif + ", lieudisposition=" + lieudisposition + ", cli=" + cli + ", c=" + c
+				+ ", v=" + v + "]";
 	}
 
 
